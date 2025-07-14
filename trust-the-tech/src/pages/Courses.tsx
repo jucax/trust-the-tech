@@ -109,7 +109,7 @@ export default function Courses() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Browse All Courses</h1>
+          <h1 className="text-4xl font-decorative font-bold text-gray-900 mb-4">Browse All Courses</h1>
           <p className="text-xl text-gray-600">Find the perfect course to boost your digital skills</p>
         </motion.div>
 
@@ -188,7 +188,7 @@ export default function Courses() {
                     <Play className="h-12 w-12 text-white" />
                   </div>
                   <div className="absolute top-2 left-2">
-                    <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
+                    <span className="bg-secondary text-white text-xs px-2 py-1 rounded-full">
                       {course.level}
                     </span>
                   </div>
@@ -220,7 +220,7 @@ export default function Courses() {
                       <span>{course.duration}</span>
                     </div>
                   </div>
-                  <Button asChild className="w-full mt-auto">
+                  <Button asChild className="w-full mt-auto bg-secondary hover:bg-secondary/90 text-white">
                     <Link to={`/courses/${course.id}`}>Learn More</Link>
                   </Button>
                 </CardContent>
@@ -253,4 +253,4 @@ export default function Courses() {
       </div>
     </div>
   );
-} 
+}

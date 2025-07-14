@@ -49,7 +49,7 @@ export default function DashboardLayout() {
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <Link to="/" className="flex items-center gap-3">
               <img src="/assets/trust-the-tech-logo-1.png" alt="Trust the Tech Logo" className="h-8 w-auto rounded" />
-              <span className="font-bold text-lg text-primary">Dashboard</span>
+              <span className="font-decorative font-bold text-lg text-secondary">Dashboard</span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -68,7 +68,7 @@ export default function DashboardLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-primary text-white'
+                      ? 'bg-secondary text-white'
                       : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                   }`
                 }

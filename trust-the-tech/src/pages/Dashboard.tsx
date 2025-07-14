@@ -104,8 +104,8 @@ export default function Dashboard() {
                   <p className="text-sm font-medium text-gray-600">Courses in Progress</p>
                   <p className="text-2xl font-bold text-gray-900">3</p>
                 </div>
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <BookOpen className="h-6 w-6 text-primary" />
+                <div className="p-3 bg-secondary/10 rounded-full">
+                  <BookOpen className="h-6 w-6 text-secondary" />
                 </div>
               </div>
             </CardContent>
@@ -189,7 +189,7 @@ export default function Dashboard() {
                     <div className="text-right">
                       <p className="text-xs text-gray-500">Last accessed</p>
                       <p className="text-sm font-medium">{course.lastAccessed}</p>
-                      <Button asChild size="sm" className="mt-2">
+                      <Button asChild size="sm" className="mt-2 bg-secondary hover:bg-secondary/90 text-white">
                         <Link to={`/courses/${course.id}`}>
                           <Play className="h-4 w-4 mr-1" />
                           Continue
@@ -225,7 +225,7 @@ export default function Dashboard() {
                       <span className="text-xs text-gray-500">{session.time}</span>
                     </div>
                     <p className="text-sm text-gray-600">{session.course}</p>
-                    <span className="inline-block mt-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                    <span className="inline-block mt-1 text-xs bg-secondary/10 text-secondary px-2 py-1 rounded">
                       {session.type}
                     </span>
                   </div>
@@ -265,7 +265,7 @@ export default function Dashboard() {
                       <span className="text-gray-500">{course.students} students</span>
                       <span className="text-yellow-600">★ {course.rating}</span>
                     </div>
-                    <Button asChild size="sm" className="w-full mt-3">
+                    <Button asChild size="sm" className="w-full mt-3 bg-secondary hover:bg-secondary/90 text-white">
                       <Link to={`/courses/${course.id}`}>Learn More</Link>
                     </Button>
                   </div>

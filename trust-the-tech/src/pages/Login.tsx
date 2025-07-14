@@ -10,7 +10,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-primary-light/5 to-white flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-primary/20 via-primary/10 to-white flex items-center justify-center py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,14 +73,14 @@ export default function Login() {
               </Link>
             </div>
 
-            <Button className="w-full bg-primary hover:bg-primary/90">
+            <Button className="w-full bg-secondary hover:bg-secondary/90 text-white">
               Sign In
             </Button>
 
             <div className="text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{' '}
-                <Link to="/signup" className="text-primary hover:underline font-medium">
+                <Link to="/signup" className="text-secondary hover:underline font-medium">
                   Sign up
                 </Link>
               </p>

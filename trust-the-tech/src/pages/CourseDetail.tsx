@@ -107,7 +107,7 @@ export default function CourseDetail() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">{course.title}</h1>
+              <h1 className="text-4xl font-decorative font-bold text-gray-900 mb-4">{course.title}</h1>
               <p className="text-xl text-gray-600 mb-6">{course.description}</p>
               
               <div className="flex items-center gap-6 text-sm text-gray-500 mb-6">
@@ -123,7 +123,7 @@ export default function CourseDetail() {
                   <Clock className="h-4 w-4" />
                   <span>{course.duration}</span>
                 </div>
-                <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
+                <span className="bg-secondary/10 text-secondary px-2 py-1 rounded-full text-xs">
                   {course.level}
                 </span>
               </div>
@@ -207,7 +207,7 @@ export default function CourseDetail() {
                     <p className="text-gray-600">No payment required</p>
                   </div>
                   
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-lg py-3 mb-4">
+                  <Button className="w-full bg-secondary hover:bg-secondary/90 text-white text-lg py-3 mb-4">
                     Enroll for Free
                   </Button>
                   

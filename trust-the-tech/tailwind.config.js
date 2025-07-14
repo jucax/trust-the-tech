@@ -9,12 +9,17 @@ export default {
   	extend: {
   		colors: {
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				light: '#A4DAE0',
+  				DEFAULT: '#A3D7DE',
+  				light: '#A3D7DE',
+  				dark: '#417B96',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
+  			secondary: {
+  				DEFAULT: '#417B96',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
+  				DEFAULT: '#CC2D25',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			background: 'hsl(var(--background))',
@@ -26,10 +31,6 @@ export default {
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
@@ -49,6 +50,9 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		fontFamily: {
+  			'decorative': ['RQND Pro Condensed', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

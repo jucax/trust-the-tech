@@ -10,19 +10,19 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img src="/assets/trust-the-tech-logo-1.png" alt="Trust the Tech Logo" className="h-12 w-auto rounded-lg" />
-              <span className="font-bold text-xl">Trust the Tech</span>
+              <span className="font-decorative font-bold text-xl text-primary">Trust the Tech</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               Empowering everyone—especially older adults and underserved communities—to learn digital tools and build tech confidence.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -32,10 +32,10 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/courses" className="text-gray-300 hover:text-white transition-colors">Courses</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/login" className="text-gray-300 hover:text-white transition-colors">Login</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/courses" className="text-gray-300 hover:text-primary transition-colors">Courses</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-primary transition-colors">About</Link></li>
+              <li><Link to="/login" className="text-gray-300 hover:text-primary transition-colors">Login</Link></li>
             </ul>
           </div>
 

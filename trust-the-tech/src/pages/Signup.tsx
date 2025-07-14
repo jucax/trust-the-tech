@@ -11,7 +11,7 @@ export default function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-primary-light/5 to-white flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-primary/20 via-primary/10 to-white flex items-center justify-center py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -137,25 +137,25 @@ export default function Signup() {
                 <input type="checkbox" className="rounded border-gray-300 mt-1" />
                 <span className="text-sm text-gray-600">
                   I agree to the{' '}
-                  <Link to="#" className="text-primary hover:underline">
+                  <Link to="#" className="text-secondary hover:underline">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link to="#" className="text-primary hover:underline">
+                  <Link to="#" className="text-secondary hover:underline">
                     Privacy Policy
                   </Link>
                 </span>
               </label>
             </div>
 
-            <Button className="w-full bg-primary hover:bg-primary/90">
+            <Button className="w-full bg-secondary hover:bg-secondary/90 text-white">
               Create Account
             </Button>
 
             <div className="text-center">
               <p className="text-sm text-gray-600">
                 Already have an account?{' '}
-                <Link to="/login" className="text-primary hover:underline font-medium">
+                <Link to="/login" className="text-secondary hover:underline font-medium">
                   Sign in
                 </Link>
               </p>

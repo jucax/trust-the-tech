@@ -14,15 +14,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3">
             <img src="/assets/trust-the-tech-logo-1.png" alt="Trust the Tech Logo" className="h-10 w-auto rounded-lg" />
-            <span className="font-bold text-xl text-primary">Trust the Tech</span>
+            <span className="font-decorative font-bold text-xl text-secondary">Trust the Tech</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
             <NavLink 
               to="/" 
               className={({isActive}) => 
-                `text-sm font-medium transition-colors hover:text-primary ${
-                  isActive ? 'text-primary' : 'text-gray-600'
+                `text-sm font-medium transition-colors hover:text-secondary ${
+                  isActive ? 'text-secondary' : 'text-gray-600'
                 }`
               }
             >
@@ -31,8 +31,8 @@ export default function Navbar() {
             <NavLink 
               to="/courses" 
               className={({isActive}) => 
-                `text-sm font-medium transition-colors hover:text-primary ${
-                  isActive ? 'text-primary' : 'text-gray-600'
+                `text-sm font-medium transition-colors hover:text-secondary ${
+                  isActive ? 'text-secondary' : 'text-gray-600'
                 }`
               }
             >
@@ -41,8 +41,8 @@ export default function Navbar() {
             <NavLink 
               to="/about" 
               className={({isActive}) => 
-                `text-sm font-medium transition-colors hover:text-primary ${
-                  isActive ? 'text-primary' : 'text-gray-600'
+                `text-sm font-medium transition-colors hover:text-secondary ${
+                  isActive ? 'text-secondary' : 'text-gray-600'
                 }`
               }
             >
@@ -54,7 +54,7 @@ export default function Navbar() {
             <Button variant="ghost" asChild>
               <Link to="/login">Login</Link>
             </Button>
-            <Button asChild className="bg-primary hover:bg-primary/90">
+            <Button asChild className="bg-accent hover:bg-accent/90 text-white">
               <Link to="/signup">Sign Up</Link>
             </Button>
           </div>
