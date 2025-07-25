@@ -7,6 +7,7 @@ require('dotenv').config(); // Load environment variables
 
 // Import authentication routes
 const authRouter = require('./routes/auth');
+const coursesRouter = require('./routes/courses');
 
 // Initialize Express app
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors()); // Enable CORS for all routes
 app.use(helmet()); // Add security headers
 app.use(morgan('dev')); // Log HTTP requests
 app.use('/api/auth', authRouter); // Routes for register and login
+app.use('/api/courses', coursesRouter); // Routes for course content
 
 // Basic route for testing
 app.get('/', (req, res) => {
