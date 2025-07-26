@@ -6,18 +6,56 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Star, Users, Clock, Play, Search, Filter } from 'lucide-react';
 
-const allCourses = [
+// Assign specific categories to each course
+const courseApps = [
+  { name: 'Wayground', description: 'Master the basics of Wayground, a platform for interactive learning paths and digital classroom management.', level: 'Beginner', category: 'EdTech' },
+  { name: 'Socrative', description: 'Learn to use Socrative for real-time quizzes, instant feedback, and student engagement.', level: 'Intermediate', category: 'Assessment' },
+  { name: 'Brainscape', description: 'Boost your memory and study skills with Brainscape’s smart flashcards and spaced repetition.', level: 'Advanced', category: 'Study Tools' },
+  { name: 'Genially', description: 'Create interactive presentations and infographics with Genially, perfect for engaging lessons.', level: 'Beginner', category: 'Presentation' },
+  { name: 'Visme', description: 'Design beautiful presentations, infographics, and reports with Visme’s easy-to-use tools.', level: 'Intermediate', category: 'Design' },
+  { name: 'Canva', description: 'Learn to design graphics, posters, and social media posts with Canva’s drag-and-drop interface.', level: 'Beginner', category: 'Design' },
+  { name: 'Adobe Express', description: 'Unlock creative potential with Adobe Express for quick, professional graphics and videos.', level: 'Advanced', category: 'Design' },
+  { name: 'Canvas', description: 'Navigate Canvas LMS for assignments, grades, and communication in digital classrooms.', level: 'Intermediate', category: 'LMS' },
+  { name: 'Google Classroom', description: 'Set up and manage virtual classrooms, assignments, and feedback with Google Classroom.', level: 'Beginner', category: 'LMS' },
+  { name: 'Google Docs', description: 'Collaborate in real time and master document creation with Google Docs.', level: 'Beginner', category: 'Productivity' },
+  { name: 'Google Suite', description: 'Get productive with Google Suite: Docs, Sheets, Slides, and more for education and work.', level: 'Intermediate', category: 'Productivity' },
+  { name: 'Powtoon', description: 'Create animated videos and presentations for fun and effective learning with Powtoon.', level: 'Intermediate', category: 'Video' },
+  { name: 'Moovly', description: 'Produce engaging video content and animations with Moovly’s online platform.', level: 'Advanced', category: 'Video' },
+  { name: 'Duolingo', description: 'Start learning a new language with Duolingo’s gamified lessons and daily practice.', level: 'Beginner', category: 'Language' },
+  { name: 'Google Scholar', description: 'Find academic articles and research papers efficiently using Google Scholar.', level: 'Advanced', category: 'Research' },
+  { name: 'Khan Academy', description: 'Access free courses in math, science, and more with Khan Academy’s interactive platform.', level: 'Intermediate', category: 'General Education' },
+];
+
+const newCourses = courseApps.map((app, i) => {
+  const stars = (Math.random() * 1.5 + 3.5).toFixed(1); // 3.5 - 5.0
+  const students = Math.floor(Math.random() * 270) + 30; // 30 - 299
+  return {
+    id: `course-${i + 1}`,
+    title: app.name,
+    description: app.description,
+    instructor: 'Trust the Tech Team',
+    rating: parseFloat(stars),
+    students,
+    duration: `${Math.floor(Math.random() * 3) + 1} hours`,
+    category: app.category,
+    level: app.level,
+    image: `/assets/courses/course-${i + 1}.png`,
+  };
+});
+
+// Reduce students for the 6 previous courses and assign more specific categories
+const previousCourses = [
   {
     id: 'canva',
     title: 'How to use Canva',
     description: 'Learn the basics of creating beautiful designs with Canva.',
     instructor: 'Sarah Johnson',
     rating: 4.8,
-    students: 1247,
+    students: Math.floor(Math.random() * 100) + 200, // 200-299
     duration: '2 hours',
     category: 'Design',
     level: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop'
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop',
   },
   {
     id: 'google-docs',
@@ -25,11 +63,11 @@ const allCourses = [
     description: 'Master document creation, editing, and sharing in Google Docs.',
     instructor: 'Mike Chen',
     rating: 4.9,
-    students: 2156,
+    students: Math.floor(Math.random() * 100) + 200,
     duration: '1.5 hours',
     category: 'Productivity',
     level: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop'
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop',
   },
   {
     id: 'digital-safety',
@@ -37,11 +75,11 @@ const allCourses = [
     description: 'Stay safe online with essential digital safety tips.',
     instructor: 'Dr. Emily Rodriguez',
     rating: 4.7,
-    students: 892,
+    students: Math.floor(Math.random() * 100) + 200,
     duration: '3 hours',
     category: 'Security',
     level: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=250&fit=crop'
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=250&fit=crop',
   },
   {
     id: 'google-sheets',
@@ -49,11 +87,11 @@ const allCourses = [
     description: 'Learn to organize data and create simple spreadsheets.',
     instructor: 'Mike Chen',
     rating: 4.6,
-    students: 1567,
+    students: Math.floor(Math.random() * 100) + 200,
     duration: '2.5 hours',
     category: 'Productivity',
     level: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop'
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop',
   },
   {
     id: 'social-media',
@@ -61,11 +99,11 @@ const allCourses = [
     description: 'Navigate social media platforms safely and effectively.',
     instructor: 'Sarah Johnson',
     rating: 4.5,
-    students: 2034,
+    students: Math.floor(Math.random() * 100) + 200,
     duration: '2 hours',
     category: 'Communication',
     level: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=250&fit=crop'
+    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=250&fit=crop',
   },
   {
     id: 'video-calls',
@@ -73,13 +111,27 @@ const allCourses = [
     description: 'Master Zoom, Skype, and other video calling platforms.',
     instructor: 'Dr. Emily Rodriguez',
     rating: 4.8,
-    students: 1789,
+    students: Math.floor(Math.random() * 100) + 200,
     duration: '1.5 hours',
     category: 'Communication',
     level: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop'
-  }
+    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop',
+  },
 ];
+
+// Mix previous and new courses
+function shuffle<T>(array: T[]): T[] {
+  let arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+const allCourses = shuffle([...previousCourses, ...newCourses]);
+
+export { allCourses };
 
 const categories = ['All', 'Design', 'Productivity', 'Security', 'Communication'];
 const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];

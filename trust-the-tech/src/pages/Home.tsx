@@ -3,39 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Star, Users, Clock, Play, Globe, Heart, Shield } from 'lucide-react';
+import { allCourses } from './Courses';
 
+const previousIds = ['canva', 'google-docs', 'digital-safety', 'google-sheets', 'social-media', 'video-calls'];
+const newCoursesOnly = allCourses.filter((c: any) => !previousIds.includes(c.id));
+const previousCoursesOnly = allCourses.filter((c: any) => previousIds.includes(c.id));
 const popularCourses = [
-  {
-    id: 'canva',
-    title: 'How to use Canva',
-    description: 'Learn the basics of creating beautiful designs with Canva.',
-    instructor: 'Sarah Johnson',
-    rating: 4.8,
-    students: 1247,
-    duration: '2 hours',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'google-docs',
-    title: 'Intro to Google Docs',
-    description: 'Master document creation, editing, and sharing in Google Docs.',
-    instructor: 'Mike Chen',
-    rating: 4.9,
-    students: 2156,
-    duration: '1.5 hours',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'digital-safety',
-    title: 'Digital Safety 101',
-    description: 'Stay safe online with essential digital safety tips.',
-    instructor: 'Dr. Emily Rodriguez',
-    rating: 4.7,
-    students: 892,
-    duration: '3 hours',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=250&fit=crop'
-  }
+  newCoursesOnly[0],
+  newCoursesOnly[1],
+  previousCoursesOnly[0],
 ];
+
+const heroImage = 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80';
 
 const instructors = [
   {
@@ -92,24 +71,19 @@ const stats = [
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/20 via-primary/10 to-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-decorative font-bold text-gray-900 mb-6">
-              Empower Everyone to{' '}
-              <span className="text-secondary">Trust Technology</span>
+      {/* Hero Section - Refactored to match reference image layout */}
+      <section className="bg-gradient-to-br from-primary/20 via-primary/10 to-white py-20 px-6 md:px-16 lg:px-32">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Left: Headline, subheadline, CTAs */}
+          <div className="flex-1 min-w-[320px] flex flex-col items-start justify-center gap-6">
+            <h1 className="text-5xl md:text-6xl font-decorative font-bold text-gray-900 mb-2">
+              Empower everyone to <span className="text-secondary">trust technology</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
-              Every day, new technologies reshape how we live, work, and connect. But while innovation charges forward, 
-              many people—especially educators, older adults, and underserved communities—are left behind. 
-              Trust the Tech was born to change that.
+            <div className="w-24 h-1 bg-secondary rounded-full mb-2" />
+            <p className="text-xl md:text-2xl text-gray-600 mb-4 max-w-xl">
+              Every day, new technologies reshape how we live, work, and connect, but while innovation charges forward, many people, especially educators, older adults, and underserved communities, are left behind. Trust the Tech was born to change that.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white text-lg px-8 py-3">
                 <Link to="/courses">Browse Courses</Link>
               </Button>
@@ -117,7 +91,37 @@ export default function Home() {
                 <Link to="/about">Learn More</Link>
               </Button>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Right: Photo and stat/info cards */}
+          <div className="flex-1 min-w-[320px] flex items-center justify-center relative mt-12 md:mt-0">
+            {/* Main photo (replace src with your own or a placeholder) */}
+            <div className="rounded-3xl overflow-hidden shadow-lg w-[320px] h-[380px] relative bg-gray-100">
+              <img
+                src={heroImage}
+                alt="Trust the Tech Student"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            {/* Floating stat card: Active Students */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 md:-left-8 md:translate-x-0 bg-white rounded-xl shadow-lg px-6 py-3 flex flex-col items-center border border-gray-100">
+              <span className="text-2xl font-bold text-secondary">120K</span>
+              <span className="text-gray-600 text-sm">Active Students</span>
+            </div>
+            {/* Floating stat card: Weekly Spend Hours */}
+            <div className="absolute bottom-4 right-1/2 translate-x-1/2 md:-right-8 md:translate-x-0 bg-white rounded-xl shadow-lg px-6 py-3 flex flex-col items-center border border-gray-100">
+              <span className="text-gray-600 text-sm mb-1">Weekly Spend Hours</span>
+              <span className="text-2xl font-bold text-secondary mb-2">36h 25 min</span>
+              {/* Simple bar chart */}
+              <div className="flex gap-1 items-end h-8">
+                <div className="w-2 h-3 bg-secondary/40 rounded" />
+                <div className="w-2 h-5 bg-secondary/60 rounded" />
+                <div className="w-2 h-8 bg-secondary rounded" />
+                <div className="w-2 h-5 bg-secondary/60 rounded" />
+                <div className="w-2 h-4 bg-secondary/40 rounded" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

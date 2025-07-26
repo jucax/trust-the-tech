@@ -11,6 +11,7 @@ type Course = {
   title: string;
   description: string;
   icon: keyof typeof Icons;
+  level: string; // Added level to the type
 };
 
 function isLucideComponent(
@@ -31,8 +32,24 @@ export function CourseCard({ course }: { course: Course }) {
             {course.title}
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground text-center min-h-[48px]">{course.description}</p>
+        <CardContent className="flex-1 flex flex-col">
+          <div className="flex flex-col items-center">
+            <p className="text-sm text-muted-foreground text-center min-h-[48px]">{course.description}</p>
+            <div className="flex flex-col items-center mt-2">
+              <span className="text-xs text-gray-500">By: {course.instructor}</span>
+              <span className="text-xs text-secondary font-semibold mt-1">Level: {course.level}</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-between text-sm text-gray-500 mt-3">
+            <div className="flex items-center gap-1">
+              <Users className="h-4 w-4" />
+              <span>{course.students} students</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span>{course.rating}</span>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </Link>
