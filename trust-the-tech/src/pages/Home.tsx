@@ -201,14 +201,14 @@ export default function Home() {
               </div>
               <div className="md:col-span-2">
                 <h3 className="text-2xl font-decorative font-bold text-secondary mb-4">
-                  Mexican Student & Digital Literacy Advocate
+                  Mexican Student, Digital Literacy Advocate
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   I'm Juan, currently pursuing a dual degree in Computer Science and Economics at Southwestern University in Texas, 
-                  on a full-ride scholarship awarded through the Beca Ricardo Salinas Pliego.
+                  on a full ride scholarship awarded through the Beca Ricardo Salinas Pliego.
                 </p>
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  I launched Trust the Tech—originally known as "Pero ¿No Me Hackean?"—in Mexico City after witnessing 
+                  I launched Trust the Tech, originally known as "Pero ¿No Me Hackean?", in Mexico City after witnessing 
                   how many brilliant educators lacked access to the digital tools they needed to thrive in the modern world.
                 </p>
                 <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
@@ -278,46 +278,6 @@ export default function Home() {
                       <Link to={`/courses/${course.id}`}>Learn More</Link>
                     </Button>
                   </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Instructors Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-decorative font-bold text-gray-900 mb-4">Meet Our Instructors</h2>
-            <p className="text-xl text-gray-600">Learn from experienced professionals who understand your needs</p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {instructors.map((instructor, index) => (
-              <motion.div
-                key={instructor.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="text-center p-6">
-                  <img 
-                    src={instructor.image} 
-                    alt={instructor.name} 
-                    className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                  />
-                  <CardTitle className="text-xl mb-2">{instructor.name}</CardTitle>
-                  <p className="text-secondary font-medium mb-2">{instructor.role}</p>
-                  <p className="text-gray-600 mb-4">{instructor.bio}</p>
-                  <p className="text-sm text-gray-500">{instructor.courses} courses</p>
                 </Card>
               </motion.div>
             ))}
