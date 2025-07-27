@@ -13,6 +13,7 @@ import {
   BookOpen,
   Lightbulb
 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const myCourses = [
   {
@@ -78,20 +79,29 @@ const upcomingSessions = [
 ];
 
 export default function Dashboard() {
+  const [user, setUser] = useState<{ name: string } | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('user');
+    if (stored) {
+      setUser(JSON.parse(stored));
+    }
+  }, []);
+
   return (
-    <div className="space-y-6">
-      {/* Welcome Section */}
+    <div>
+      <h1 className="text-4xl font-decorative font-bold text-gray-900 mb-4">
+        Welcome{user ? `, ${user.name}` : ''}!
+      </h1>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, John!</h1>
         <p className="text-gray-600">You're making great progress. Keep up the excellent work!</p>
       </motion.div>
-
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -152,8 +162,7 @@ export default function Dashboard() {
           </Card>
         </motion.div>
       </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
         {/* My Courses Section */}
         <div className="lg:col-span-2">
           <motion.div
@@ -235,7 +244,6 @@ export default function Dashboard() {
           </motion.div>
         </div>
       </div>
-
       {/* Suggested Courses */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

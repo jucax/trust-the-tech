@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import DashboardLayout from './components/DashboardLayout';
+import Dashboard2 from './pages/Dashboard2';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         {/* Dashboard routes with DashboardLayout */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
+        </Route>
+        <Route path="/dashboard2" element={<DashboardLayout />}>
+          <Route index element={<Dashboard2 />} />
         </Route>
       </Routes>
     </div>

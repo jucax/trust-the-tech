@@ -27,15 +27,19 @@ export default function Signup() {
       return;
     }
     try {
-      const res = await fetch('http://localhost:4000/api/auth/register', {
+      const res = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
       });
       const data = await res.json();
       if (res.ok && data.id) {
-        setSuccess('Account created! Redirecting to login...');
-        setTimeout(() => navigate('/login'), 1500);
+        setSuccess('Account created! Redirecting to dashboard...');
+        // Store user info in localStorage
+        localStorage.setItem('user', JSON.stringify({ id: data.id, name: data.name, email: data.email }));
+        // If token is returned, store it as well
+        if (data.token) localStorage.setItem('token', data.token);
+        setTimeout(() => navigate('/dashboard'), 1000);
       } else {
         setError(data.error || 'Registration failed');
       }
