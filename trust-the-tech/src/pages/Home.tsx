@@ -3,15 +3,45 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Star, Users, Clock, Play, Globe, Heart, Shield } from 'lucide-react';
-import { allCourses } from './Courses';
 
-const previousIds = ['canva', 'google-docs', 'digital-safety', 'google-sheets', 'social-media', 'video-calls'];
-const newCoursesOnly = allCourses.filter((c: any) => !previousIds.includes(c.id));
-const previousCoursesOnly = allCourses.filter((c: any) => previousIds.includes(c.id));
+// Define popular courses directly to avoid circular dependency
 const popularCourses = [
-  newCoursesOnly[0],
-  newCoursesOnly[1],
-  previousCoursesOnly[0],
+  {
+    id: 'course-6',
+    title: 'Canva',
+    description: 'Learn to design graphics, posters, and social media posts with Canva\'s drag-and-drop interface.',
+    instructor: 'Juan Martinez Varela',
+    rating: 4.8,
+    students: 1247,
+    duration: '2 hours',
+    category: 'Design',
+    level: 'Beginner',
+    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=250&fit=crop',
+  },
+  {
+    id: 'chatgpt',
+    title: 'How to use ChatGPT efficiently',
+    description: 'Master ChatGPT to boost your productivity, creativity, and problem-solving skills.',
+    instructor: 'Juan Martinez Varela',
+    rating: 4.9,
+    students: 2156,
+    duration: '2.5 hours',
+    category: 'AI Tools',
+    level: 'Beginner',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop',
+  },
+  {
+    id: 'course-10',
+    title: 'Google Docs',
+    description: 'Collaborate in real time and master document creation with Google Docs.',
+    instructor: 'Juan Martinez Varela',
+    rating: 4.9,
+    students: 2156,
+    duration: '1.5 hours',
+    category: 'Productivity',
+    level: 'Beginner',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop',
+  },
 ];
 
 const heroImage = '/assets/landing-picture-1.jpg'; // new tech learning group image
