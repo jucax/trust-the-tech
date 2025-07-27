@@ -1,32 +1,24 @@
-// Import required modules
-const express = require('express'); // Express framework
-const cors = require('cors'); // Cross-Origin Resource Sharing
-const helmet = require('helmet'); // Security headers
-const morgan = require('morgan'); // Logging
-require('dotenv').config(); // Load environment variables
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
-// Import authentication routes
+dotenv.config();
+const app = express();
+
 const authRouter = require('./routes/auth');
 const coursesRouter = require('./routes/courses');
 
-// Initialize Express app
-const app = express();
+app.use(cors());
+app.use(express.json());
 
-// Middleware setup
-app.use(express.json()); // Parse JSON bodies
-app.use(cors()); // Enable CORS for all routes
-app.use(helmet()); // Add security headers
-app.use(morgan('dev')); // Log HTTP requests
-app.use('/api/auth', authRouter); // Routes for register and login
-app.use('/api/courses', coursesRouter); // Routes for course content
-
-// Basic route for testing
-app.get('/', (req, res) => {
-  res.send('Trust the Tech backend is running!');
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
+app.use('/api/auth', authRouter);
+app.use('/api/courses', coursesRouter);
+
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 }); 
