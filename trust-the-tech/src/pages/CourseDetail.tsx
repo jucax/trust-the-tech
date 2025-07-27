@@ -24,14 +24,14 @@ const courseData: Record<string, CourseDetail> = {
   'canva': {
     title: 'How to use Canva',
     description: 'Learn the basics of creating beautiful designs with Canva. This comprehensive course will teach you everything from creating social media graphics to designing presentations and marketing materials.',
-    instructor: 'Sarah Johnson',
-    instructorBio: 'Former senior designer at Adobe with 10+ years teaching digital design. Sarah specializes in making complex design tools accessible to everyone.',
-    instructorImage: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face',
+    instructor: 'Juan Martinez Varela',
+    instructorBio: 'Founder of Trust the Tech, passionate about making technology accessible to everyone. Juan specializes in digital literacy and helping people master essential tools like Canva.',
+    instructorImage: '/assets/headshot.jpg',
     rating: 4.8,
     students: 1247,
     duration: '2 hours',
     level: 'Beginner',
-    video: 'https://www.youtube.com/embed/5O6JKCkXg5A',
+    video: 'https://www.youtube.com/embed/wCEtWz5imUs?start=44',
     lessons: [
       { title: 'Introduction to Canva', duration: '10 min', completed: true },
       { title: 'Creating Your First Design', duration: '15 min', completed: true },
