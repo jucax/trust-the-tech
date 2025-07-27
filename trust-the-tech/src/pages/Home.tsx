@@ -14,7 +14,7 @@ const popularCourses = [
   previousCoursesOnly[0],
 ];
 
-const heroImage = 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80';
+const heroImage = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80'; // new tech learning group image
 
 const instructors = [
   {
@@ -104,22 +104,13 @@ export default function Home() {
               />
             </div>
             {/* Floating stat card: Active Students */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 md:-left-8 md:translate-x-0 bg-white rounded-xl shadow-lg px-6 py-3 flex flex-col items-center border border-gray-100">
-              <span className="text-2xl font-bold text-secondary">120K</span>
-              <span className="text-gray-600 text-sm">Active Students</span>
+            <div className="absolute top-4 right-0 md:right-4 bg-white rounded-xl shadow-lg px-6 py-3 flex flex-col items-center border border-gray-100">
+              <span className="text-2xl font-bold text-secondary">More than 20<br />free courses</span>
             </div>
             {/* Floating stat card: Weekly Spend Hours */}
             <div className="absolute bottom-4 right-1/2 translate-x-1/2 md:-right-8 md:translate-x-0 bg-white rounded-xl shadow-lg px-6 py-3 flex flex-col items-center border border-gray-100">
-              <span className="text-gray-600 text-sm mb-1">Weekly Spend Hours</span>
-              <span className="text-2xl font-bold text-secondary mb-2">36h 25 min</span>
-              {/* Simple bar chart */}
-              <div className="flex gap-1 items-end h-8">
-                <div className="w-2 h-3 bg-secondary/40 rounded" />
-                <div className="w-2 h-5 bg-secondary/60 rounded" />
-                <div className="w-2 h-8 bg-secondary rounded" />
-                <div className="w-2 h-5 bg-secondary/60 rounded" />
-                <div className="w-2 h-4 bg-secondary/40 rounded" />
-              </div>
+              <Heart className="w-8 h-8 text-accent mb-2" />
+              <span className="text-gray-600 text-sm mb-1">Social impact project</span>
             </div>
           </div>
         </div>
@@ -199,21 +190,17 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-1">
-                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-6xl font-decorative font-bold">
-                  JM
-                </div>
+                <img src="/assets/headshot.jpg" alt="Juan Martinez Varela" className="w-48 h-48 mx-auto rounded-full object-cover border-4 border-primary" />
               </div>
               <div className="md:col-span-2">
                 <h3 className="text-2xl font-decorative font-bold text-secondary mb-4">
                   Mexican Student, Digital Literacy Advocate
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  I'm Juan, currently pursuing a dual degree in Computer Science and Economics at Southwestern University in Texas, 
-                  on a full ride scholarship awarded through the Beca Ricardo Salinas Pliego.
+                  I'm Juan, a Mexican student currently pursuing a dual degree in Computer Science and Economics at Southwestern University in Texas. I want to become a software engineer, and at the same time, I work to help and empower as many people as possible to access and trust technology.
                 </p>
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  I launched Trust the Tech, originally known as "Pero ¿No Me Hackean?", in Mexico City after witnessing 
-                  how many brilliant educators lacked access to the digital tools they needed to thrive in the modern world.
+                  This started as a project from high school and has been growing, becoming an organization with thousands of people impacted globally.
                 </p>
                 <div className="bg-accent/10 p-4 rounded-lg border-l-4 border-accent">
                   <p className="text-accent font-semibold">
@@ -348,13 +335,13 @@ export default function Home() {
               <Button asChild size="lg" className="bg-white text-secondary hover:bg-gray-100 text-lg px-8 py-3">
                 <Link to="/courses">Browse Courses</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-secondary text-lg px-8 py-3">
+              <Button asChild size="lg" className="bg-white text-secondary hover:bg-gray-100 text-lg px-8 py-3">
                 <Link to="/signup">Sign Up Free</Link>
-              </Button>
+      </Button>
             </div>
           </motion.div>
         </div>
-      </section>
+    </section>
     </div>
   );
 } 
