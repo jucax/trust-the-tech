@@ -23,7 +23,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/trust-the-tech/$1"
+      "dest": "/trust-the-tech/index.html"
     }
   ]
 } 

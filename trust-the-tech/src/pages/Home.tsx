@@ -14,31 +14,7 @@ const popularCourses = [
   previousCoursesOnly[0],
 ];
 
-const heroImage = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80'; // new tech learning group image
-
-const instructors = [
-  {
-    name: 'Sarah Johnson',
-    role: 'Design Expert',
-    bio: 'Former senior designer at Adobe with 10+ years teaching digital design.',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face',
-    courses: 5
-  },
-  {
-    name: 'Mike Chen',
-    role: 'Productivity Coach',
-    bio: 'Google Workspace certified trainer helping teams work smarter.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face',
-    courses: 3
-  },
-  {
-    name: 'Dr. Emily Rodriguez',
-    role: 'Cybersecurity Specialist',
-    bio: 'PhD in Computer Science with focus on digital safety education.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
-    courses: 4
-  }
-];
+const heroImage = '/assets/landing-picture-1.jpg'; // new tech learning group image
 
 const testimonials = [
   {

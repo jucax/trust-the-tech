@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, User, Phone } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,6 +18,7 @@ export default function Signup() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,10 +37,14 @@ export default function Signup() {
       const data = await res.json();
       if (res.ok && data.id) {
         setSuccess('Account created! Redirecting to dashboard...');
-        // Store user info in localStorage
-        localStorage.setItem('user', JSON.stringify({ id: data.id, name: data.name, email: data.email }));
-        // If token is returned, store it as well
-        if (data.token) localStorage.setItem('token', data.token);
+        // Use auth context to login the user
+        const userData = { id: data.id, name: data.name, email: data.email };
+        if (data.token) {
+          login(userData, data.token);
+        } else {
+          // If no token returned, just store user data
+          login(userData, 'temp-token');
+        }
         setTimeout(() => navigate('/dashboard'), 1000);
       } else {
         setError(data.error || 'Registration failed');

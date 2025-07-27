@@ -10,8 +10,9 @@ import {
   Menu,
   X
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useAuth } from '../contexts/AuthContext';
 
 const sidebarItems = [
   { icon: BookOpen, label: 'My Courses', href: '/dashboard' },
@@ -24,12 +25,12 @@ const sidebarItems = [
 
 export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [user, setUser] = useState<{ name: string } | null>(null);
+  const { user, logout } = useAuth();
 
-  useEffect(() => {
-    const stored = localStorage.getItem('user');
-    if (stored) setUser(JSON.parse(stored));
-  }, []);
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/';
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -49,6 +50,13 @@ export default function DashboardLayout() {
                 <h1 className="text-lg font-semibold text-gray-900">Welcome back{user ? `, ${user.name}` : ''}!</h1>
                 <p className="text-sm text-gray-500">Continue your learning journey</p>
               </div>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <LogOut className="h-4 w-4" />
+                Logout
+              </button>
             </div>
           </div>
         </header>

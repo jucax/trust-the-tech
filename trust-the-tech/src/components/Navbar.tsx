@@ -1,8 +1,17 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from './ui/button';
 import { motion } from 'framer-motion';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
+  const { user, logout, isAuthenticated } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    // Redirect to home page after logout
+    window.location.href = '/';
+  };
+
   return (
     <motion.nav 
       className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50"
@@ -48,15 +57,40 @@ export default function Navbar() {
             >
               About
             </NavLink>
+            {isAuthenticated && (
+              <NavLink 
+                to="/dashboard" 
+                className={({isActive}) => 
+                  `text-sm font-medium transition-colors hover:text-secondary ${
+                    isActive ? 'text-secondary' : 'text-gray-600'
+                  }`
+                }
+              >
+                Dashboard
+              </NavLink>
+            )}
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" asChild>
-              <Link to="/login">Login</Link>
-            </Button>
-            <Button asChild className="bg-accent hover:bg-accent/90 text-white">
-              <Link to="/signup">Sign Up</Link>
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <span className="text-sm text-gray-600 hidden sm:block">
+                  Welcome, {user?.name}
+                </span>
+                <Button variant="ghost" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button asChild className="bg-accent hover:bg-accent/90 text-white">
+                  <Link to="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>

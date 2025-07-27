@@ -13,7 +13,7 @@ import {
   BookOpen,
   Lightbulb
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 
 const myCourses = [
   {
@@ -79,14 +79,7 @@ const upcomingSessions = [
 ];
 
 export default function Dashboard() {
-  const [user, setUser] = useState<{ name: string } | null>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('user');
-    if (stored) {
-      setUser(JSON.parse(stored));
-    }
-  }, []);
+  const { user } = useAuth();
 
   return (
     <div>
